@@ -1,0 +1,88 @@
+/* Estilos generales de la aplicación (CSS simple, sin librerías) */
+:root {
+  --primario: #6d28d9;
+  --primario-oscuro: #5b21b6;
+  --fondo: #f5f5f7;
+  --tarjeta: #ffffff;
+  --texto: #1f2937;
+  --tenue: #6b7280;
+  --borde: #e5e7eb;
+  --exito-fondo: #ecfdf5;
+  --exito: #047857;
+  --error-fondo: #fef2f2;
+  --error: #b91c1c;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+h2 { margin: 0 0 1rem; font-size: 1.2rem; }
+
+.contenedor { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+
+/* ----- Barra superior ----- */
+.barra { background: var(--primario); color: #fff; margin-bottom: 1.5rem; }
+.barra__contenido { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.barra__titulo { margin: 0; font-size: 1.3rem; }
+.barra__nav a { color: #e9d5ff; text-decoration: none; margin-left: 1.2rem; font-weight: 500; }
+.barra__nav a.router-link-active { color: #fff; border-bottom: 2px solid #fff; padding-bottom: 4px; }
+
+/* ----- Tarjetas ----- */
+.tarjeta {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.tarjeta__encabezado { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.tarjeta__encabezado h2 { margin: 0; }
+
+/* ----- Formularios ----- */
+.formulario { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; align-items: end; margin-bottom: 1rem; }
+.formulario__ancho { grid-column: 1 / -1; }
+.formulario label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.9rem; color: var(--tenue); }
+.formulario__acciones { display: flex; gap: 0.5rem; }
+input, select {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  font: inherit;
+  color: var(--texto);
+}
+input:focus, select:focus { outline: 2px solid var(--primario); border-color: transparent; }
+
+/* ----- Botones ----- */
+.btn {
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--borde);
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+}
+.btn:hover { background: #f3f4f6; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn--primario { background: var(--primario); border-color: var(--primario); color: #fff; }
+.btn--primario:hover { background: var(--primario-oscuro); }
+.btn--peligro { color: var(--error); border-color: #fecaca; }
+.btn--peligro:hover { background: var(--error-fondo); }
+.btn--chico { padding: 0.3rem 0.6rem; font-size: 0.85rem; }
+
+/* ----- Tablas ----- */
+.tabla { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 0.95rem; }
+.tabla th, .tabla td { padding: 0.6rem; border-bottom: 1px solid var(--borde); text-align: left; }
+.tabla th { color: var(--tenue); font-weight: 600; font-size: 0.85rem; }
+.tabla .num { text-align: right; font-variant-numeric: tabular-nums; }
+.acciones { display: flex; gap: 0.4rem; }
+.stock-bajo { color: var(--error); font-weight: 600; }
+.detalle td { background: #faf5ff; }
+.detalle ul { margin: 0; padding-left: 1.2rem; }
+
+/* ----- Mensajes ----- */
+.alerta { padding: 0.7rem 1rem; border-radius: 6px; margin: 1rem 0 0; }
+.alerta--exito { background: var(--exito-fondo); color: var(--exito); }
+.alerta--error { background: var(--error-fondo); color: var(--error); }
+.vacio { color: var(--tenue); }
